@@ -27,6 +27,7 @@ public class NettyServerSimpleHandler extends ChannelInboundHandlerAdapter {
         System.out.println("当前线程 "+Thread.currentThread().getName());
         System.out.println("server ctx:"+ctx);
         ByteBuf byteBuf = (ByteBuf)msg;
+        Thread.sleep(1000*10);
         System.out.println("receive msg "+byteBuf.toString(CharsetUtil.UTF_8)+" ip"+ctx.channel().remoteAddress());
     }
 
