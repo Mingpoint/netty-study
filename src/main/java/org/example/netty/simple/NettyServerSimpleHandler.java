@@ -2,6 +2,7 @@ package org.example.netty.simple;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -25,6 +26,8 @@ public class NettyServerSimpleHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         System.out.println("当前线程 "+Thread.currentThread().getName());
+        Channel channel = ctx.channel();
+        System.out.println("channel"+channel.getClass());
         System.out.println("server ctx:"+ctx);
         ByteBuf byteBuf = (ByteBuf)msg;
         Thread.sleep(1000*10);
